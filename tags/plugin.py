@@ -128,5 +128,5 @@ def get_metadata(name, path):
         metadata = extract_yaml(f)
         if metadata:
             meta = yaml.load(metadata, Loader=yaml.FullLoader)
-            meta.update(filename=name)
+            meta.update(filename=name.split("/")[-1])
             return meta
