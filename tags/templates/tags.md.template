@@ -3,7 +3,7 @@ title: Tags
 ---
 
 {% extends "base.html" %}
-
+{% block tags %}
 # Contents grouped by Tag
 
 {% for tag, pages in tags %}
@@ -12,3 +12,4 @@ title: Tags
   * [{{page.title}}]({{page.filename}})
  {% endfor %} 
 {% endfor %}
+{% endblock %}
