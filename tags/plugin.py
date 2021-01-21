@@ -25,14 +25,14 @@ class TagsPlugin(BasePlugin):
 
     config_scheme = (
         ('tags_filename', Type(str, default='tags.md')),
-        ('tags_folder', Type(str, default='aux')),
+        ('tags_folder', Type(str, default='tmp')),
         ('tags_template', Type(str)),
     )
 
     def __init__(self):
         self.metadata = []
         self.tags_filename = "tags.md"
-        self.tags_folder = "aux"
+        self.tags_folder = "tmp"
         self.tags_template = None
 
     def on_nav(self, nav, config, files):
@@ -77,7 +77,7 @@ class TagsPlugin(BasePlugin):
             environment = jinja2.Environment(
                 loader=jinja2.FileSystemLoader(str(templ_path))
                 )
-            templ = environment.get_template("tags.md.template")
+            templ = environment.get_template("tags.html.template")
         else:
             environment = jinja2.Environment(
                 loader=jinja2.FileSystemLoader(searchpath=str(self.tags_template.parent))
