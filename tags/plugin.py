@@ -17,21 +17,21 @@ from mkdocs.config.config_options import Type
 
 class TagsPlugin(BasePlugin):
     """
-    Creates "tags.md" file containing a list of the pages grouped by tags
+    Creates "tags.html" file containing a list of the pages grouped by tags
 
     It uses the info in the YAML metadata of each page, for the pages which
     provide a "tags" keyword (whose value is a list of strings)
     """
 
     config_scheme = (
-        ('tags_filename', Type(str, default='tags.md')),
+        ('tags_filename', Type(str, default='tags.html')),
         ('tags_folder', Type(str, default='tmp')),
         ('tags_template', Type(str)),
     )
 
     def __init__(self):
         self.metadata = []
-        self.tags_filename = "tags.md"
+        self.tags_filename = "tags.html"
         self.tags_folder = "tmp"
         self.tags_template = None
 
